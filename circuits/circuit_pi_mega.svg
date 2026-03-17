@@ -1,0 +1,181 @@
+<svg width="1000" height="700" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="700" fill="#1a1a2e"/>
+
+  <!-- Title -->
+  <text x="500" y="35" text-anchor="middle" fill="#6C63FF" font-size="20" font-weight="bold">AGV Circuit — Raspberry Pi 3 + L298N + LiDAR + IR Array + MPU6050</text>
+
+  <!-- BATTERY -->
+  <rect x="20" y="260" width="110" height="60" rx="8" fill="#2d2d44" stroke="#EF9F27" stroke-width="2"/>
+  <text x="75" y="284" text-anchor="middle" fill="#EF9F27" font-size="13" font-weight="bold">12V Battery</text>
+  <text x="75" y="302" text-anchor="middle" fill="#EF9F27" font-size="11">VRLA 7.2Ah</text>
+
+  <!-- FUSE -->
+  <rect x="20" y="370" width="110" height="50" rx="8" fill="#2d2d44" stroke="#E24B4A" stroke-width="2"/>
+  <text x="75" y="392" text-anchor="middle" fill="#E24B4A" font-size="13" font-weight="bold">20A Fuse</text>
+  <text x="75" y="408" text-anchor="middle" fill="#E24B4A" font-size="11">inline</text>
+
+  <!-- Battery to Fuse -->
+  <line x1="75" y1="320" x2="75" y2="370" stroke="#EF9F27" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- XL4015 -->
+  <rect x="185" y="360" width="130" height="60" rx="8" fill="#2d2d44" stroke="#1D9E75" stroke-width="2"/>
+  <text x="250" y="384" text-anchor="middle" fill="#1D9E75" font-size="13" font-weight="bold">XL4015</text>
+  <text x="250" y="402" text-anchor="middle" fill="#1D9E75" font-size="11">12V → 5.1V</text>
+
+  <!-- Fuse to XL4015 -->
+  <path d="M130 385 L185 385" stroke="#EF9F27" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- Fuse to L298N 12V -->
+  <path d="M130 405 L165 405 L165 520 L330 520" stroke="#EF9F27" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+  <text x="140" y="465" fill="#EF9F27" font-size="10">12V+</text>
+
+  <!-- Battery GND line -->
+  <path d="M20 275 L5 275 L5 640 L185 640" stroke="#378ADD" stroke-width="2.5" fill="none"/>
+
+  <!-- GND RAIL -->
+  <rect x="185" y="628" width="600" height="24" rx="4" fill="#0d2137" stroke="#378ADD" stroke-width="1.5"/>
+  <text x="485" y="644" text-anchor="middle" fill="#378ADD" font-size="11" font-weight="bold">Common GND Rail — Battery− / XL4015 VOUT− / Pi Pin6 / L298N GND / MPU GND / IR GND</text>
+
+  <!-- 5V RAIL -->
+  <rect x="185" y="598" width="600" height="24" rx="4" fill="#1a0d0d" stroke="#E24B4A" stroke-width="1.5"/>
+  <text x="485" y="614" text-anchor="middle" fill="#E24B4A" font-size="11" font-weight="bold">5V Rail — XL4015 VOUT+ → Pi Pin2 / IR VCC / MPU6050 VCC</text>
+
+  <!-- XL4015 to 5V rail -->
+  <path d="M250 420 L250 598" stroke="#E24B4A" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="258" y="510" fill="#E24B4A" font-size="10">5.1V</text>
+
+  <!-- XL4015 VOUT- to GND rail -->
+  <path d="M225 420 L225 628" stroke="#378ADD" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- RASPBERRY PI 3 -->
+  <rect x="330" y="180" width="200" height="200" rx="8" fill="#2d2d44" stroke="#6C63FF" stroke-width="2"/>
+  <text x="430" y="205" text-anchor="middle" fill="#6C63FF" font-size="14" font-weight="bold">Raspberry Pi 3</text>
+  <text x="430" y="222" text-anchor="middle" fill="#6C63FF" font-size="11">Python AGV Server</text>
+  <text x="342" y="248" fill="#E24B4A" font-size="10">Pin2(5V)←5V rail</text>
+  <text x="342" y="264" fill="#378ADD" font-size="10">Pin6(GND)←GND</text>
+  <text x="342" y="282" fill="#9FE1CB" font-size="10">GPIO17→IN1</text>
+  <text x="342" y="298" fill="#9FE1CB" font-size="10">GPIO27→IN2</text>
+  <text x="342" y="314" fill="#9FE1CB" font-size="10">GPIO22→IN3</text>
+  <text x="342" y="330" fill="#9FE1CB" font-size="10">GPIO23→IN4</text>
+  <text x="342" y="346" fill="#9FE1CB" font-size="10">GPIO25→STBY</text>
+  <text x="430" y="248" fill="#9FE1CB" font-size="10">GPIO18→PWMA</text>
+  <text x="430" y="264" fill="#9FE1CB" font-size="10">GPIO24→PWMB</text>
+  <text x="430" y="282" fill="#AFA9EC" font-size="10">GPIO5→IR D1</text>
+  <text x="430" y="298" fill="#AFA9EC" font-size="10">GPIO6→IR D2</text>
+  <text x="430" y="314" fill="#AFA9EC" font-size="10">GPIO12→IR D3</text>
+  <text x="430" y="330" fill="#AFA9EC" font-size="10">GPIO13→IR D4</text>
+  <text x="430" y="346" fill="#378ADD" font-size="10">USB→LiDAR</text>
+  <text x="342" y="364" fill="#aaa" font-size="10">WebSocket :8765</text>
+
+  <!-- Pi 5V from rail -->
+  <path d="M380 380 L380 598" stroke="#E24B4A" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <!-- Pi GND to rail -->
+  <path d="M395 380 L395 628" stroke="#378ADD" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- L298N -->
+  <rect x="330" y="460" width="185" height="120" rx="8" fill="#2d2d44" stroke="#D85A30" stroke-width="2"/>
+  <text x="422" y="483" text-anchor="middle" fill="#D85A30" font-size="14" font-weight="bold">L298N</text>
+  <text x="342" y="502" fill="#E24B4A" font-size="10">VCC←5V rail</text>
+  <text x="342" y="518" fill="#378ADD" font-size="10">GND←GND rail</text>
+  <text x="342" y="534" fill="#EF9F27" font-size="10">12V←Fuse</text>
+  <text x="342" y="550" fill="#9FE1CB" font-size="10">IN1-IN4←Pi GPIO</text>
+  <text x="342" y="566" fill="#aaa" font-size="10">ENA/ENB: jumper ON</text>
+  <text x="430" y="502" fill="#E85D24" font-size="10">OUT1+OUT2→MA</text>
+  <text x="430" y="518" fill="#4CAF50" font-size="10">OUT3+OUT4→MB</text>
+
+  <!-- Pi GPIO to L298N -->
+  <path d="M430 380 L422 460" stroke="#9FE1CB" stroke-width="1.5" fill="none" stroke-dasharray="4 2" marker-end="url(#arr)"/>
+
+  <!-- L298N GND to GND rail -->
+  <path d="M370 580 L370 628" stroke="#378ADD" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <!-- L298N VCC from 5V rail -->
+  <path d="M355 580 L355 598" stroke="#E24B4A" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- Motor A -->
+  <rect x="560" y="460" width="110" height="50" rx="8" fill="#2d2d44" stroke="#E85D24" stroke-width="2"/>
+  <text x="615" y="480" text-anchor="middle" fill="#E85D24" font-size="13" font-weight="bold">Motor A</text>
+  <text x="615" y="498" text-anchor="middle" fill="#E85D24" font-size="11">Left wheel</text>
+
+  <!-- Motor B -->
+  <rect x="560" y="525" width="110" height="50" rx="8" fill="#2d2d44" stroke="#4CAF50" stroke-width="2"/>
+  <text x="615" y="545" text-anchor="middle" fill="#4CAF50" font-size="13" font-weight="bold">Motor B</text>
+  <text x="615" y="563" text-anchor="middle" fill="#4CAF50" font-size="11">Right wheel</text>
+
+  <!-- L298N to Motors -->
+  <line x1="515" y1="510" x2="560" y2="485" stroke="#E85D24" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="515" y1="530" x2="560" y2="550" stroke="#4CAF50" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- LIDAR -->
+  <rect x="560" y="180" width="160" height="60" rx="8" fill="#2d2d44" stroke="#378ADD" stroke-width="2"/>
+  <text x="640" y="204" text-anchor="middle" fill="#378ADD" font-size="13" font-weight="bold">YDLIDAR X2</text>
+  <text x="640" y="222" text-anchor="middle" fill="#378ADD" font-size="11">USB → Pi /dev/ttyUSB0</text>
+
+  <!-- LiDAR to Pi USB -->
+  <path d="M560 210 L530 260" stroke="#378ADD" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- IR ARRAY -->
+  <rect x="560" y="270" width="160" height="120" rx="8" fill="#2d2d44" stroke="#AFA9EC" stroke-width="2"/>
+  <text x="640" y="294" text-anchor="middle" fill="#AFA9EC" font-size="13" font-weight="bold">IR Array RLS-08</text>
+  <text x="572" y="316" fill="#E24B4A" font-size="10">VCC×2 → 5V rail</text>
+  <text x="572" y="332" fill="#378ADD" font-size="10">GND×2 → GND rail</text>
+  <text x="572" y="348" fill="#AFA9EC" font-size="10">D1→GPIO5</text>
+  <text x="572" y="364" fill="#AFA9EC" font-size="10">D2→GPIO6</text>
+  <text x="660" y="348" fill="#AFA9EC" font-size="10">D3→GPIO12</text>
+  <text x="660" y="364" fill="#AFA9EC" font-size="10">D4→GPIO13</text>
+  <text x="572" y="380" fill="#AFA9EC" font-size="10">D5-D8→GPIO16-21</text>
+
+  <!-- IR to Pi -->
+  <path d="M560 310 L530 310" stroke="#AFA9EC" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- IR VCC from 5V rail -->
+  <path d="M640 390 L640 598" stroke="#E24B4A" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <!-- IR GND to GND rail -->
+  <path d="M660 390 L660 628" stroke="#378ADD" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- MPU6050 -->
+  <rect x="760" y="270" width="130" height="100" rx="8" fill="#2d2d44" stroke="#FAC775" stroke-width="2"/>
+  <text x="825" y="294" text-anchor="middle" fill="#FAC775" font-size="13" font-weight="bold">MPU6050</text>
+  <text x="772" y="316" fill="#E24B4A" font-size="10">VCC←5V rail</text>
+  <text x="772" y="332" fill="#378ADD" font-size="10">GND←GND rail</text>
+  <text x="772" y="348" fill="#FAC775" font-size="10">SDA→Pi GPIO2</text>
+  <text x="772" y="364" fill="#FAC775" font-size="10">SCL→Pi GPIO3</text>
+
+  <!-- MPU to Pi I2C -->
+  <path d="M760 330 L530 330" stroke="#FAC775" stroke-width="1.5" fill="none" stroke-dasharray="4 2" marker-end="url(#arr)"/>
+
+  <!-- MPU VCC/GND -->
+  <path d="M825 370 L825 598" stroke="#E24B4A" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <path d="M840 370 L840 628" stroke="#378ADD" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+  <!-- FLUTTER APP -->
+  <rect x="760" y="180" width="160" height="60" rx="8" fill="#2d2d44" stroke="#6C63FF" stroke-width="2"/>
+  <text x="840" y="204" text-anchor="middle" fill="#6C63FF" font-size="13" font-weight="bold">Flutter App</text>
+  <text x="840" y="222" text-anchor="middle" fill="#6C63FF" font-size="11">WiFi WebSocket :8765</text>
+
+  <!-- App to Pi WiFi -->
+  <path d="M760 210 L530 250" stroke="#6C63FF" stroke-width="1.5" fill="none" stroke-dasharray="5 3" marker-end="url(#arr)"/>
+  <text x="640" y="230" fill="#6C63FF" font-size="10">WiFi</text>
+
+  <!-- Legend -->
+  <rect x="20" y="80" width="200" height="155" rx="6" fill="#111" stroke="#333" stroke-width="1"/>
+  <text x="120" y="102" text-anchor="middle" fill="white" font-size="13" font-weight="bold">Wire Legend</text>
+  <line x1="34" y1="120" x2="75" y2="120" stroke="#EF9F27" stroke-width="2.5"/>
+  <text x="80" y="124" fill="#EF9F27" font-size="11">12V power</text>
+  <line x1="34" y1="138" x2="75" y2="138" stroke="#E24B4A" stroke-width="2.5"/>
+  <text x="80" y="142" fill="#E24B4A" font-size="11">5V power</text>
+  <line x1="34" y1="156" x2="75" y2="156" stroke="#378ADD" stroke-width="2.5"/>
+  <text x="80" y="160" fill="#378ADD" font-size="11">GND</text>
+  <line x1="34" y1="174" x2="75" y2="174" stroke="#9FE1CB" stroke-width="2.5"/>
+  <text x="80" y="178" fill="#9FE1CB" font-size="11">GPIO signal</text>
+  <line x1="34" y1="192" x2="75" y2="192" stroke="#AFA9EC" stroke-width="2.5"/>
+  <text x="80" y="196" fill="#AFA9EC" font-size="11">IR array</text>
+  <line x1="34" y1="210" x2="75" y2="210" stroke="#FAC775" stroke-width="2.5"/>
+  <text x="80" y="214" fill="#FAC775" font-size="11">I2C (MPU6050)</text>
+  <line x1="34" y1="224" x2="75" y2="224" stroke="#6C63FF" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <text x="80" y="228" fill="#6C63FF" font-size="11">WiFi</text>
+</svg>
