@@ -6,7 +6,7 @@ You can download the latest APK for the AGV Flutter app from the [GitHub Release
 
 ### 📥 Quick Download
 
-[![Download AGV Controller APK](https://img.shields.io/badge/Download-agv_controller.apk-brightgreen?style=for-the-badge&logo=android)](https://github.com/sandy001-kki/agv-raspberry-pi-mega/releases/download/v1.0.0/agv_controller.apk)
+[![Download AGV Controller APK](https://img.shields.io/badge/Download-AGV_controller.apk-brightgreen?style=for-the-badge&logo=android)](https://github.com/sandy001-kki/agv-raspberry-pi-mega/releases/download/v1.0.0/AGV-controller.apk)
 
 ### Installation Instructions
 
@@ -25,7 +25,7 @@ You can download the latest APK for the AGV Flutter app from the [GitHub Release
 
 | Version | Date | Download | Notes |
 |---------|------|----------|-------|
-| v1.0.0 | 2026-03-17 | [![Download](https://img.shields.io/badge/Download-brightgreen)](https://github.com/sandy001-kki/agv-raspberry-pi-mega/releases/download/v1.0.0/agv_controller.apk) | Initial Flutter app release |
+| v1.0.0 | 2026-03-17 | [![Download](https://img.shields.io/badge/Download-brightgreen)](https://github.com/sandy001-kki/agv-raspberry-pi-mega/releases/download/v1.0.0/AGV-controller.apk) | Initial Flutter app release |
 
 ## Building the APK Locally
 
