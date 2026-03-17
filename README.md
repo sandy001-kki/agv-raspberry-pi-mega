@@ -151,6 +151,8 @@ flutter run
 ```
 Enter Pi IP address in connect screen.
 
+**📱 Download APK:** [![Download APK](https://img.shields.io/badge/Download-agv_controller.apk-brightgreen?style=for-the-badge&logo=android)](https://github.com/sandy001-kki/agv-raspberry-pi-mega/releases/download/v1.0.0/agv_controller.apk) or see [RELEASES.md](RELEASES.md) for more versions.
+
 ---
 
 ## Modes
