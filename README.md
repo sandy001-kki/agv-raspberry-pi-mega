@@ -221,5 +221,7 @@ MIT License
 ---
 
 ## Author
+Bollavaram Sandeep Kumar
+---
 
 AGV prototype project — Raspberry Pi 3 + Arduino Mega + YDLIDAR X2
